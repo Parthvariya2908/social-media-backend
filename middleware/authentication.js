@@ -5,16 +5,9 @@ const path = require("path");
 const connection = require("../connection");
 const con = connection();
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads");
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname));
-  },
-});
 
-const upload = multer({ storage: storage });
+
+
 
 const authenticateToken = (req, res, next) => {
   const token = req.cookies.accessToken;
