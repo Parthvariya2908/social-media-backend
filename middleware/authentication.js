@@ -70,6 +70,6 @@ const checkTFA = (req, res, next) => {
 module.exports = {
   authenticateToken,
   authforcomment,
-  upload,
+
   checkTFA,
 };
