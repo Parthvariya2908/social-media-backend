@@ -5,11 +5,7 @@ const con = connection();
 const createPost = (req, res) => {
   const { title, content } = req.body;
   const user_id = req.user_id;
-  let photo = req.file ? path.join("uploads", req.file.filename) : null;
 
-  if (photo) {
-    photo = photo.replace(/\\/g, "/");
-  }
 
   if (!title || !content) {
     return res
@@ -18,8 +14,8 @@ const createPost = (req, res) => {
   }
 
   con.query(
-    "INSERT INTO posts (user_id, title, content, photo) VALUES (?, ?, ?, ?)",
-    [user_id, title, content, photo],
+    "INSERT INTO posts (user_id, title, content) VALUES (?, ?, ?, ?)",
+    [user_id, title, content],
     (err, result) => {
       if (err) {
         return res
