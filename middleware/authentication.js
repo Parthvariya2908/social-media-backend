@@ -47,29 +47,8 @@ const authforcomment = (req, res, next) => {
   }
 };
 
-const checkTFA = (req, res, next) => {
-  const userId = req.user_id;
-
-  const query = "SELECT tfa FROM users WHERE user_id = ?";
-  con.query(query, [userId], (err, results) => {
-    if (err) {
-      console.error("Database query error:", err);
-      return res.status(500).json({ error: "Database error" });
-    }
-
-    if (results.length > 0 && results[0].tfa) {
-      next();
-    } else {
-      res.status(403).json({
-        message: "Two-Factor Authentication is required",
-      });
-    }
-  });
-};
 
 module.exports = {
   authenticateToken,
   authforcomment,
-
-  checkTFA,
 };
