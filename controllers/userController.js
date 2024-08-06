@@ -197,8 +197,8 @@ const sendpasswordmailer = async (email) => {
       service: "gmail",
       port: 587,
       auth: {
-        user: "fenilkakadiya7777@gmail.com",
-        pass: "rkue vcak sned qjxv",
+        user: "$$$$$$$$$$$$$$$$$$$$$$",
+        pass: "$$$$$$$$$$$$$$$$$$$$$$",
       },
     });
 
